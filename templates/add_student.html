@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p></p>
+<h1>{{ title }}</h1>
+<p></p>
+<form action="" method="post">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control") }}<br>
+        {% for error in form.name.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.surname.label }}<br>
+        {{ form.surname(class="form-control") }}<br>
+        {% for error in form.surname.errors %}
+    <p content="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.gender.label }}<br><br>
+        {% for subfield in form.gender %}
+        <label class="radio">
+            {{ subfield }}
+            {{ subfield.label }}
+        </label>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.in_plan(class='"form-check-input" type="checkbox" id="inlineCheckbox1" value="option1"') }}
+        {{ form.in_plan.label(class='"form-check-label" for="inlineCheckbox1"') }}<br>
+        {% for error in form.in_plan.errors %}
+    <p class="alert alert-danger" role="alert">
+        {{ error }}
+    </p>
+    {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}

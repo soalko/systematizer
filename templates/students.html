@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p></p>
+<table class="table">
+    <thead class="table-borderless">
+    <tr>
+        <th>#</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Пол</th>
+        <th>В плане</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+    <tr>
+        <th scope="row">{{ item[0] }}</th>
+        <td>{{ item[1] }}</td>
+        <td>{{ item[2] }}</td>
+        <td>{{ item[3] }}</td>
+        <td>{{ item[4] }}</td>
+        <td><a href="edit_student/{{ item[0] }}" class="btn btn-warning">Редактировать ученика</a></td>
+        <td><a href="delete_student/{{ item[0] }}" class="btn btn-danger">Удалить ученика</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<p>
+    <a href="add_student" class="btn btn-success">Добавить ученика</a>
+</p>
+{% endblock %}

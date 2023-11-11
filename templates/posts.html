@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+<p></p>
+<table class="table">
+    <thead class="table-borderless">
+    <tr>
+        <th>#</th>
+        <th>Название</th>
+        <th>Этаж</th>
+        <th>Кол-во мальчиков</th>
+        <th>Кол-во девочек</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for item in items %}
+    <tr>
+        <th scope="row">{{ item[0] }}</th>
+        <td>{{ item[1] }}</td>
+        <td>{{ item[2] }}</td>
+        <td>{{ item[3] }}</td>
+        <td>{{ item[4] }}</td>
+        <td><a href="edit_post/{{ item[0] }}" class="btn btn-warning">Редактировать пост</a></td>
+        <td><a href="delete_post/{{ item[0] }}" class="btn btn-danger">Удалить пост</a></td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+<p>
+    <a href="add_post" class="btn btn-success">Добавить пост</a>
+</p>
+
+{% endblock %}
